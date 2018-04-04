@@ -28,7 +28,7 @@ include("../src/database.php");
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <?php echo $post["content"]; ?>
+                    <?php echo nl2br($post["content"]); ?>
                 </div>
             </div>
         </div>
