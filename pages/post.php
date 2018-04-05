@@ -1,37 +1,33 @@
 <?php
 require "elements/header.php";
 require "elements/nav.php";
-include("../src/database.php");
+include("../init.php");
 
 ?>
 
-    <br />
-    <br />
-    <br />
+<br />
+<br />
 
-    <div class="container">
-        <div class="starter-template">
-        <h1>Posts</h1>
-        <p class="lead">This are the posts.</p>
-        </div>
-        <div>
-        <?php
-            $id = $_GET['id'];
-            $post = fetch_post($id);
+<h1>Posts</h1>
+<p class="lead">This are the posts.</p>
 
-        ?>
+<?php
 
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        <?php echo $post["title"]; ?>
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    <?php echo nl2br($post["content"]); ?>
-                </div>
-            </div>
-        </div>
+    $postsRepository = new App\Post\PostsRepository();
+    $id = $_GET['id'];
+    $post = $postsRepository->fetch_post($id);
+
+?>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <?php echo $post["title"]; ?>
+        </h3>
     </div>
+    <div class="panel-body">
+        <?php echo nl2br($post["content"]); ?>
+    </div>
+</div>
 
 <?php require "elements/footer.php"; ?>
