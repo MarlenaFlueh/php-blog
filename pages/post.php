@@ -13,7 +13,7 @@ include("../init.php");
 
 <?php
 
-    $postsRepository = new App\Post\PostsRepository();
+    $postsRepository = new App\Post\PostsRepository($pdo);
     $id = $_GET['id'];
     $post = $postsRepository->fetch_post($id);
 

@@ -13,7 +13,7 @@ require "elements/nav.php";
 <p class="lead">Welcome to the new Blog.</p>
 
 <?php
-    $postsRepository = new App\Post\PostsRepository();
+    $postsRepository = new App\Post\PostsRepository($pdo);
     $res = $postsRepository->fetch_posts();
 ?>
 
