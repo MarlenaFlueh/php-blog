@@ -20,8 +20,8 @@ require "elements/nav.php";
 <ul>
     <?php foreach($res as $row): ?>
         <li>
-            <a href="post.php?id=<?php echo $row["id"]; ?>">
-                <?php echo $row["title"] ?>
+            <a href="post.php?id=<?php echo $row->id; ?>">
+                <?php echo $row->title ?>
             </a>
         </li>
     <?php endforeach ?>
