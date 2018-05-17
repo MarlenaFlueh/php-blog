@@ -22,13 +22,10 @@ class PostsRepository
         $stmt = $this->pdo->prepare("SELECT * FROM `posts` WHERE id = :id");
         $stmt->execute(['id' => $id]);
         $postArray = $stmt->fetch();
-
-        $postObject = new PostModel;
-        $postObject->id = $postArray["id"];
-        $postObject->title = $postArray["title"];
-        $postObject->content = $postArray["content"];
-        var_dump($postObject);
-
-        return $postObject;
+        $post = new PostModel();
+        $post->id = $postArray["id"];
+        $post->title = $postArray["title"];
+        $post->content = $postArray["content"];
+        return $post;
     }
 }

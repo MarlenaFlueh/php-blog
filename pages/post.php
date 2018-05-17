@@ -8,8 +8,7 @@ include("../init.php");
 <br />
 <br />
 
-<h1>Posts</h1>
-<p class="lead">This are the posts.</p>
+<h1>Post.php</h1>
 
 <?php
 
@@ -22,11 +21,11 @@ include("../init.php");
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">
-            <?php echo $postObject->title; ?>
+            <?php echo $post->title; ?>
         </h3>
     </div>
     <div class="panel-body">
-        <?php echo nl2br($postObject->content); ?>
+        <?php echo nl2br($post->content); ?>
     </div>
 </div>
 
