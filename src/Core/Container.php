@@ -4,6 +4,7 @@ namespace App\Core;
 
 use PDO;
 use App\Post\PostsRepository;
+use App\Post\PostsController;
 
 class Container
 {
@@ -13,12 +14,20 @@ class Container
     public function __construct()
     {
         $this->receipts = [
-            'postsRepository' => function() {
+            'postsController' => function()
+            {
+                return new PostsController(
+                    $this->make('postsRepository')
+                );
+            },
+            'postsRepository' => function()
+            {
                return new PostsRepository(
                    $this->make("pdo")
                );
             },
-            'pdo' => function() {
+            'pdo' => function()
+            {
                 $pdo = new PDO("mysql:host=localhost; dbname=blog", "blog", "WL5PwNLJqLw0Wl9k");
                 $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
                 return $pdo;
@@ -28,7 +37,7 @@ class Container
 
     public function make($name)
     {
-        if (!empty($this->instances[$name])) {
+        if (!   empty($this->instances[$name])) {
             return $this->instances[$name];
         }
 
