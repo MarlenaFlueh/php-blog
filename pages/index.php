@@ -15,6 +15,12 @@ require "elements/nav.php";
 <?php
     $postsRepository = $container->getPostsRepository();
     $res = $postsRepository->fetch_posts();
+
+    $postsRepository1 = $container->getPostsRepository();
+    $postsRepository2 = $container->getPostsRepository();
+
+    var_dump($postsRepository1);
+    var_dump($postsRepository2);
 ?>
 
 <ul>
