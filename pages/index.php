@@ -13,14 +13,8 @@ require "elements/nav.php";
 <p class="lead">Welcome to the new Blog.</p>
 
 <?php
-    $postsRepository = $container->getPostsRepository();
+    $postsRepository = $container->make("postsRepository");
     $res = $postsRepository->fetch_posts();
-
-    $postsRepository1 = $container->getPostsRepository();
-    $postsRepository2 = $container->getPostsRepository();
-
-    var_dump($postsRepository1);
-    var_dump($postsRepository2);
 ?>
 
 <ul>
