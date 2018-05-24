@@ -12,8 +12,8 @@ class PostsController
 
     public function index()
     {
-        $res = $this->postsRepository->fetch_posts();
-        echo "<h1>test datei</h1>";
+        $posts = $this->postsRepository->fetch_posts();
+        include __DIR__ . "/../../views/post/index.php";
     }
 }
 
