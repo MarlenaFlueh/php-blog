@@ -15,6 +15,13 @@ class PostsController
         $posts = $this->postsRepository->fetch_posts();
         include __DIR__ . "/../../views/post/index.php";
     }
+
+    public function show()
+    {
+        $id = $_GET['id'];
+        $post = $this->postsRepository->fetch_post($id);
+        include __DIR__ . "/../../views/post/post.php";
+    }
 }
 
 ?>
