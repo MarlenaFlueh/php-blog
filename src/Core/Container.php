@@ -3,6 +3,8 @@
 namespace App\Core;
 
 use PDO;
+use Exception;
+use PDOException;
 use App\Post\PostsRepository;
 use App\Post\PostsController;
 
@@ -26,9 +28,14 @@ class Container
                    $this->make("pdo")
                );
             },
-            'pdo' => function()
-            {
-                $pdo = new PDO("mysql:host=localhost; dbname=blog", "blog", "WL5PwNLJqLw0Wl9k");
+            'pdo' => function() {
+                try {
+                    $pdo = new PDO("mysql:host=localhost; dbname=blog", "blog", "WL5PwNLJqLw0Wlk");
+
+                } catch (PDOException $e) {
+                    echo 'Verbindung zur Datenbank fehlgeschlagen.';
+                    die();
+                }
                 $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
                 return $pdo;
             }
