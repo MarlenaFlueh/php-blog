@@ -30,7 +30,7 @@ class Container
             },
             'pdo' => function() {
                 try {
-                    $pdo = new PDO("mysql:host=localhost; dbname=blog", "blog", "WL5PwNLJqLw0Wlk");
+                    $pdo = new PDO("mysql:host=localhost; dbname=blog", "blog", "WL5PwNLJqLw0Wl9k");
 
                 } catch (PDOException $e) {
                     echo 'Verbindung zur Datenbank fehlgeschlagen.';
