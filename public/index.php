@@ -4,12 +4,22 @@ require __DIR__ . "/../init.php";
 
 $path = $_SERVER['PATH_INFO'];
 
-if ($path == "/index") {
-    $postsController = $container->make("postsController");
-    $postsController->index();
-} elseif ($path == "/post") {
-    $postsController = $container->make("postsController");
-    $postsController->show();
+$routes = [
+    '/index' => [
+        'controller' => 'postsController',
+        'method' => 'index'
+    ],
+    '/post' => [
+        'controller' => 'postsController',
+        'method' => 'show'
+    ]
+];
+
+if (isset($routes[$path])) {
+    $route = $routes[$path];
+    $postsController = $container->make($route['controller']);
+    $method = $route['method'];
+    $postsController->$method();
 }
 
 ?>
