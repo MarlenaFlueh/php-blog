@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+use App\Comment\CommentRepository;
 use PDO;
 use Exception;
 use PDOException;
@@ -19,7 +20,8 @@ class Container
             'postsController' => function()
             {
                 return new PostsController(
-                    $this->make('postsRepository')
+                    $this->make('postsRepository'),
+                    $this->make('commentRepository')
                 );
             },
             'postsRepository' => function()
@@ -27,6 +29,12 @@ class Container
                return new PostsRepository(
                    $this->make("pdo")
                );
+            },
+            'commentRepository' => function()
+            {
+                return new CommentRepository(
+                    $this->make("pdo")
+                );
             },
             'pdo' => function() {
                 try {

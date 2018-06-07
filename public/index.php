@@ -12,6 +12,10 @@ $routes = [
     '/post' => [
         'controller' => 'postsController',
         'method' => 'show'
+    ],
+    '/comment' => [
+        'controller' => 'comment',
+        'method' => 'showComment'
     ]
 ];
 

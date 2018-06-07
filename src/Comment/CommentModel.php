@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Post;
+namespace App\Comment;
 
 use ArrayAccess;
 use App\Core\AbstractModel;
 
-class PostModel extends AbstractModel
+class CommentModel extends AbstractModel
 {
     public $id;
     public $title;
-    public $content;
+    public $post_id;
 }
 
 ?>
