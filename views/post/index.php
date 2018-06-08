@@ -7,8 +7,8 @@
 <ul>
     <?php foreach ($posts AS $post): ?>
     <li>
-        <a href="post?id=<?php echo $post->id; ?>">
-            <?php echo $post->title; ?>
+        <a href="post?id=<?php echo escape($post->id); ?>">
+            <?php echo escape($post->title); ?>
         </a>
     </li>
     <?php endforeach; ?>
