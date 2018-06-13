@@ -8,6 +8,7 @@ use Exception;
 use PDOException;
 use App\Post\PostsRepository;
 use App\Post\PostsController;
+use App\User\UserRepository;
 
 class Container
 {
@@ -33,6 +34,12 @@ class Container
             'commentRepository' => function()
             {
                 return new CommentRepository(
+                    $this->make("pdo")
+                );
+            },
+            'userRepository' => function()
+            {
+                return new UserRepository(
                     $this->make("pdo")
                 );
             },
