@@ -5,6 +5,10 @@ require __DIR__ . "/../init.php";
 $path = $_SERVER['PATH_INFO'];
 
 $routes = [
+    '/user' => [
+        'controller' => 'userController',
+        'method' => 'login'
+    ],
     '/index' => [
         'controller' => 'postsController',
         'method' => 'index'
