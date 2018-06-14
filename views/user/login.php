@@ -9,6 +9,11 @@ require __DIR__ . "/../layout/nav.php";
 </br>
 
 <div class="container">
+
+<?php if (!empty($error)): ?>
+    <p><?php echo $error; ?></p>
+<?php endif; ?>
+</br>
     <form method="POST" method="login" class="form-horizontal">
         <div class="form-group">
             <label class="control-label col-md-3">
